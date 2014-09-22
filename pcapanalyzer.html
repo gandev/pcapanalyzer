@@ -1,0 +1,20 @@
+<head>
+  <title>pcapanalyzer</title>
+</head>
+
+<body>
+	{{> capturing}}
+</body>
+
+<template name="capturing">
+  <button id="start_capturing" {{capturingClass}}>START</button>
+  <button id="stop_capturing">STOP</button>
+  <input id="pcap_interface" type="text" value="eth0" placeholder="interface">
+  <input id="pcap_filter" type="text" value="ip proto \\tcp" placeholder="filter">
+
+  <ul>
+  {{#each packets}}
+  	<li class="captured-packet">{{_id}}</li>
+  {{/each}}
+  </ul>
+</template>
